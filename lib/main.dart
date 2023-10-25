@@ -42,6 +42,14 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: articles.length,
+              itemBuilder: (context, index) {
+                return buildArticleItem(articles[index]);
+              },
+            ),
+          ),
         ],
       ),
     );
