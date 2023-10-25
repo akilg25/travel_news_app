@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(TravelNewsApp());
@@ -16,6 +17,7 @@ class TravelNewsApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String formattedDate = DateFormat('EEEE, MMMM d').format(DateTime.now());
     return Scaffold(
       
       body: Column(
@@ -36,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text('Current Date: ${DateTime.now().toString()}'),
+                Text('$formattedDate'),
               ],
             ),
           ),
