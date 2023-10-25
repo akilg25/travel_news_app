@@ -47,3 +47,33 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+class Article {
+  final String imagePath;
+  final String title;
+  final String authorName;
+  final String authorProfileImage;
+
+  Article({
+    required this.imagePath,
+    required this.title,
+    required this.authorName,
+    required this.authorProfileImage,
+  });
+}
+
+List<Article> articles = [
+  Article(
+    imagePath: 'assets/article1.jpg',
+    title: 'Why are people leaving from Canada?',
+    authorName: 'Katya Sitak',
+    authorProfileImage: 'assets/author1.jpg',
+  ),
+  Article(
+    imagePath: 'assets/article2.jpg',
+    title: 'Why is the internet speed slow in the Philippines?',
+    authorName: 'Luke Skywalker',
+    authorProfileImage: 'assets/author2.jpg',
+  ),
+  
+];
