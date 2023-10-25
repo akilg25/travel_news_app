@@ -66,6 +66,11 @@ flutter:
     - assets/author2.jpg
     - assets/article1.jpg
     - assets/article2.jpg
+    - assets/Home.jpg
+    - assets/Group.jpg
+    - assets/Notifications.jpg
+    - assets/Profile.jpg
+
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
