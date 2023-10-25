@@ -15,6 +15,7 @@ class TravelNewsApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     String formattedDate = DateFormat('EEEE, MMMM d').format(DateTime.now());
@@ -52,8 +53,35 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/Home.jpg', width: 24, height: 24),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/Group.jpg', width: 24, height: 24),
+            label: 'Group',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/Notifications.jpg', width: 24, height: 24),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/Profile.jpg', width: 24, height: 24),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: currentIndex,
+        onTap: (index) {
+          
+          
+        },
+      ),
     );
   }
+
+  
 
   Widget buildArticleItem(Article article) {
     return Card(
@@ -91,6 +119,8 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  
 }
 
 
