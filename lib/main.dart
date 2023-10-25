@@ -46,7 +46,45 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildArticleItem(Article article) {
+    return Card(
+      margin: EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Image.asset(article.imagePath),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  article.title,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 16.0,
+                      backgroundImage: AssetImage(article.authorProfileImage),
+                    ),
+                    SizedBox(width: 8.0),
+                    Text(article.authorName),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
+
 
 class Article {
   final String imagePath;
