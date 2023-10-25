@@ -43,6 +43,26 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          Container(
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search for article...',
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    
+                  },
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: articles.length,
