@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:travel_news_app/SecondScreen.dart';
 
 void main() {
   runApp(TravelNewsApp());
@@ -67,7 +68,7 @@ class HomeScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: articles.length,
               itemBuilder: (context, index) {
-                return buildArticleItem(articles[index]);
+                return buildArticleItem(context, articles[index]);
               },
             ),
           ),
@@ -101,11 +102,25 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  
-
-  Widget buildArticleItem(Article article) {
-    return Card(
-      margin: EdgeInsets.all(16.0),
+  Widget buildArticleItem(BuildContext context,Article article) {
+    String formattedDate = DateFormat('EEEE, MMMM d').format(DateTime.now());
+  return Card(
+    margin: EdgeInsets.all(16.0),
+    child: InkWell(
+      onTap: () {
+        
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => ArticleScreen(
+              articleTitle: article.title,
+              articleAuthor: article.authorName,
+              articleDate: formattedDate, 
+              articleDuration: '5 min', 
+              articleImage: article.imagePath,
+            ),
+          ),
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -137,8 +152,12 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
+    ),
+  );
+}
+
+
+  
 
   
 }
