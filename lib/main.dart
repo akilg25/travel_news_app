@@ -64,6 +64,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: 10,),
           Expanded(
             child: ListView.builder(
               itemCount: articles.length,
@@ -114,9 +115,12 @@ class HomeScreen extends StatelessWidget {
             builder: (context) => ArticleScreen(
               articleTitle: article.title,
               articleAuthor: article.authorName,
-              articleDate: formattedDate, 
+              articleDate: article.articlePublishDate, 
               articleDuration: '5 min', 
               articleImage: article.imagePath,
+              authorProfileImage: article.authorProfileImage,
+              articleContents: article.articleContents,
+              
             ),
           ),
         );
@@ -137,6 +141,7 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                SizedBox(height: 10,),
                 Row(
                   children: <Widget>[
                     CircleAvatar(
@@ -145,6 +150,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(width: 8.0),
                     Text(article.authorName),
+                    Text("         "+article.articlePublishDate),
                   ],
                 ),
               ],
@@ -168,12 +174,17 @@ class Article {
   final String title;
   final String authorName;
   final String authorProfileImage;
+  final String articleContents;
+  final String articlePublishDate;
+  
 
   Article({
     required this.imagePath,
     required this.title,
     required this.authorName,
     required this.authorProfileImage,
+    required this.articleContents,
+    required this.articlePublishDate,
   });
 }
 
@@ -183,12 +194,16 @@ List<Article> articles = [
     title: 'Why are people leaving from Canada?',
     authorName: 'Katya Sitak',
     authorProfileImage: 'assets/author1.jpg',
+    articleContents: "People are moving away from Canada because it's expensive to buy homes, other countries offer better jobs, and some prefer warmer weather. Some people are also leaving because of their own or their family's reasons.",
+    articlePublishDate: "August 23",
   ),
   Article(
     imagePath: 'assets/article2.jpg',
     title: 'Why is the internet speed slow in the Philippines?',
     authorName: 'Luke Skywalker',
     authorProfileImage: 'assets/author2.jpg',
+    articleContents: "The internet is slow in the Philippines because some places don't have good internet equipment, the country has lots of islands which make it harder to connect, and it's difficult to provide fast internet in far-away areas. ",
+    articlePublishDate: "June 2",
   ),
   
 ];
